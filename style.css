@@ -1,0 +1,109 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #232b2b;
+}
+
+input {
+    display: none;
+}
+
+input[value='top']:checked ~ .container .cube {
+    transform: rotateX(-45deg) rotateY(17deg);
+}
+input[value='bottom']:checked ~ .container .cube {
+    transform: rotateX(45deg) rotateY(17deg);
+}
+input[value='left']:checked ~ .container .cube {
+    transform: rotateX(-17deg) rotateY(80deg);
+}
+input[value='right']:checked ~ .container .cube {
+    transform: rotateX(-17deg) rotateY(-80deg);
+}
+
+input[value='top']:checked ~ #l-top,
+input[value='bottom']:checked ~ #l-bottom,
+input[value='left']:checked ~ #l-left,
+input[value='right']:checked ~ #l-right {
+    background-color: #dc3d24;
+}
+
+label {
+    position: fixed;
+    display: block;
+    width: 50px;
+    height: 50px;
+    border: 2px solid #dc3d24;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+label:hover {
+    background-color: #dc3d2450;
+}
+
+#l-left {
+    left: 16px;
+}
+#l-right {
+    right: 16px;
+}
+#l-top {
+    top: 16px;
+}
+#l-bottom {
+    bottom: 16px;
+}
+
+.container {
+    width: 200px;
+    height: 200px;
+    perspective: 1000px;
+}
+
+.cube {
+    position: relative;
+    transform-style: preserve-3d;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s linear;
+}
+
+.face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.front {
+    background-color: #ef3339;
+    transform: rotateX(0deg) translateZ(100px);
+}
+.back {
+    background-color: #f47b37;
+    transform: rotateX(180deg) translateZ(100px);
+}
+.right {
+    background-color: #f2bc64;
+    transform: rotateY(90deg) translateZ(100px);
+}
+.left {
+    background-color: #38ba5e;
+    transform: rotateY(-90deg) translateZ(100px);
+}
+.top {
+    background-color: #5079ba;
+    transform: rotateX(90deg) translateZ(100px);
+}
+.bottom {
+    background-color: #7a5ea8;
+    transform: rotateX(-90deg) translateZ(100px);
+}
